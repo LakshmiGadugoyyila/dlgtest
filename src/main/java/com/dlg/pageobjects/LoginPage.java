@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class LoginPage {
     WebDriver driver;
@@ -22,11 +25,15 @@ public class LoginPage {
 
     public void enterEmail(String em)
     {
+
         emailTextbox.sendKeys(em);
+
     }
     public void enterPassword(String pw)
     {
+
         passwordTextbox.sendKeys(pw);
+
     }
     public void clickLogin()
     {
