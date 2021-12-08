@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginSuccessPage {
      WebDriver driver;
-    @FindBy(xpath = " //div[@class ='logged-in__success']")
+    @FindBy(className = "logged-in__success")
     public WebElement LoginSuccessTextMsg;
 
      public LoginSuccessPage(WebDriver driver)
@@ -15,8 +15,8 @@ public class LoginSuccessPage {
         this.driver = driver;
         PageFactory.initElements(driver,this);
      }
-    public String getLoginSuccessText(String s)
+    public String getLoginSuccessText()
     {
-        return s = LoginSuccessTextMsg.getText();
+        return LoginSuccessTextMsg.getText();
     }
 }

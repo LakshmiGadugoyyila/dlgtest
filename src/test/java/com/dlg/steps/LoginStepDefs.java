@@ -5,8 +5,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
 
-public class LoginStepdefs {
+
+public class LoginStepDefs {
+
+    String loginSuccessActualMsg;
+    String loginSuccessExpectedMsg = "Successfully logged in!";
+
     @Given("i navigate to url {string}")
     public void iNavigateToUrl(String url) {
         BasePage.driverUtils.navigateToUrl(url);
@@ -30,8 +36,9 @@ public class LoginStepdefs {
     }
 
     @Then("i should be logged in successfully and see message Successfully Logged in!")
-    public void iShouldBeLoggedInSuccessfullyAndSeeMessageSuccessfullyLoggedIn(String s) {
-        BasePage.loginSuccessPage.getLoginSuccessText(s);
-        System.out.println(s);
+    public void iShouldBeLoggedInSuccessfullyAndSeeMessageSuccessfullyLoggedIn() {
+        loginSuccessActualMsg = BasePage.loginSuccessPage.getLoginSuccessText();
+        Assertions.assertEquals(loginSuccessExpectedMsg, loginSuccessActualMsg);
+
     }
 }
